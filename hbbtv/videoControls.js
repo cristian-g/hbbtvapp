@@ -55,6 +55,12 @@ function broadcastFullScreen() {
     rules.style.setProperty("left", "0px");
     rules.style.setProperty("z-index", "4");
     fullscreen = true;
+
+    rules = ss.cssRules[1];
+    rules.style.setProperty("z-index", "0");
+    fullscreen = true;
+
+    $('#app').hide();
 }
 
 function broadcastOutFullScreen() {
@@ -70,4 +76,7 @@ function broadcastOutFullScreen() {
     rules = ss.cssRules[1];
     rules.style.setProperty("z-index", "1");
     fullscreen = false;
+
+    $('#app').show();
+
 }
