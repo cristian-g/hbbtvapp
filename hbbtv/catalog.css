@@ -172,12 +172,6 @@
 }
 
 /* Focused */
-.actionsList:not(.focused) .actionsList__option {
-    color: #f1f1f1;
-}
-.actionsList:not(.focused) .actionsList__option.j-selected {
-    background-color: #0e0e0e;
-}
 .actionsList:not(.focused) .actionsList__option.j-selected+.actionsList__option.j-selected:before {
     background-color: #f1f1f1;
 }
