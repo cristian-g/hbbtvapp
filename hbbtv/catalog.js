@@ -73,7 +73,7 @@ $(document).ready(function () {
     toggleActions(true);
 
     $.ajax({
-        url: 'http://hbbtvapp2.test/api/videos',
+        url: 'http://localhost/hbbtvapp/api/videos',
         method: "GET",
         dataType: "json",
 
