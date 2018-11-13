@@ -87,31 +87,30 @@ function registerKeyEventListener() {
                     resumeBroadcast();
                 }
             }
-            if(kc == VK_0){
-
-                // Destroy app
-                if (broadbandPlaying) {
-                    stopVideo();
-                }
-
-                $('#automatepin').hide();
-                initVars();
-
-                appRunning = false;
-                fullscreen = true;
-
-                timeouts.forEach(function(element) {
-                    clearTimeout(element);
-                });
-                initApp();
-                resumeBroadcast();
-                broadcastFullScreen();
-
-                $('#app').hide();
-                hideBlueButton();
-            }
         }
+        if(kc == VK_0){
 
+            // Destroy app
+            if (broadbandPlaying) {
+                stopVideo();
+            }
+
+            $('#automatepin').hide();
+            initVars();
+
+            appRunning = false;
+            fullscreen = true;
+
+            timeouts.forEach(function(element) {
+                clearTimeout(element);
+            });
+            initApp();
+            resumeBroadcast();
+            broadcastFullScreen();
+
+            $('#app').hide();
+            hideBlueButton();
+        }
         if(kc == VK_ENTER && redButtonPressed){
             $('#automatepin').hide();
             $('#app').show();
