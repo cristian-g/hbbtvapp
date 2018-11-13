@@ -82,7 +82,7 @@ $(document).ready(function () {
             mapVideos = new Map(videos.map(obj => [ obj.id, obj ]));
 
             jQuery.each(response.videos, function(index, value) {
-                $("#ul-videos").append('<li class="actionsList__option" data-video-id="' + value.id + '"><div class="video-li-container"><div class="video-thumbnail"><img src="' + value.thumbnail + '" width="90" /></div><div class="video-title">' + value.title + '<br />' + value.director + '</div><div class="video-views"><span class="views-counter"> ' + value.views + '</span></div><div class="video-buttons"><img src="/hbbtv/img/buttons.png" width="50" /></div></div></li>');
+                $("#ul-videos").append('<li class="actionsList__option" data-video-id="' + value.id + '"><div class="video-li-container"><div class="video-thumbnail"><img src="' + value.thumbnail + '" width="90" /></div><div class="video-title">' + value.title + '<br />' + value.director + '</div><div class="video-buttons"><img src="/hbbtv/img/buttons.png" width="50" /></div><div class="video-views"><span class="views-counter"> ' + value.views + '</span></div></div></li>');
             });
 
             list.selectonic("focus", 0); //first element in the list

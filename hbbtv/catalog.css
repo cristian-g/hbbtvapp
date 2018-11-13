@@ -37,9 +37,11 @@
 }
 .video-views {
     margin-top: 51px;
+    margin-right: 5px;
 }
 .video-buttons {
     margin-top: 10px;
+    margin-right: 5px;
 }
 .sidebar {
     width: 560px;
