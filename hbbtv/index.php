@@ -26,8 +26,7 @@ openDocument();
     });
     $(window).load(function() {
         // page is fully loaded, including all frames, objects and images
-        console.log('$(window).load');
-        $("#firetv-background-tv object")[0].volume = 100;
+        //$("#firetv-background-tv object")[0].volume = 100;
     });
     function initApp() {
         timeouts = new Array();
