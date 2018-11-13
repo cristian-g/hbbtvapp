@@ -29,8 +29,7 @@ openDocument();
         //$("#firetv-background-tv object")[0].volume = 100;
         timeouts.push(setTimeout(function(){
             $("#firetv-background-tv object")[0].volume = 100;
-        }, 1000));
-
+        }, 5000));
     });
     function initApp() {
         timeouts = new Array();
