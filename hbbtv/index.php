@@ -19,16 +19,19 @@ openDocument();
 
 <script>
     initApp();
+    var timeouts;
     $(document).ready(function () {
         registerKeyEventListener();
         initApp();
     });
     function initApp() {
-        setTimeout(hideRedButton, 10000);
-        setTimeout(showRedButton, 15000);
-        setTimeout(hideRedButton, 20000);
-        setTimeout(showRedButton, 62000);
-        setTimeout(hideRedButton, 67000);
+        timeouts = new Array();
+        timeouts.push(setTimeout(showRedButton, 0));
+        timeouts.push(setTimeout(hideRedButton, 10000));
+        timeouts.push(setTimeout(showRedButton, 15000));
+        timeouts.push(setTimeout(hideRedButton, 20000));
+        timeouts.push(setTimeout(showRedButton, 62000));
+        timeouts.push(setTimeout(hideRedButton, 67000));
         $('#num1').html(Math.floor(Math.random() * 10));
         $('#num2').html(Math.floor(Math.random() * 10));
         $('#num3').html(Math.floor(Math.random() * 10));
