@@ -20,28 +20,24 @@ function initVars() {
 function hideRedButton() {
     if (!redButtonPressed) {
         $('#redbuttonMsg').hide();
-        console.log('hided red button');
     }
 }
 
 function showRedButton() {
     if (!redButtonPressed) {
         $('#redbuttonMsg').show();
-        console.log('showed red button');
     }
 }
 
 function hideBlueButton() {
     if (!blueButtonPressed) {
         $('#bluebuttonMsg').hide();
-        console.log('hided blue button');
     }
 }
 
 function showBlueButton() {
     if (!blueButtonPressed) {
         $('#bluebuttonMsg').show();
-        console.log('showed blue button');
     }
 }
 
