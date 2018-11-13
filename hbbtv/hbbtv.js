@@ -109,7 +109,7 @@ function registerKeyEventListener() {
             broadcastFullScreen();
 
             $('#app').hide();
-            hideBlueButton();
+            $('#bluebuttonMsg').hide();
         }
         if(kc == VK_ENTER && redButtonPressed){
             $('#automatepin').hide();
