@@ -22,11 +22,13 @@ function stopVideo() {
 function goFullScreen() {
     $('#video').addClass('video-fullscreen').removeClass('video-small');
     fullscreen = true;
+    $('#ul-videos').selectonic("disable");
 }
 
 function outFullScreen() {
     $('#video').removeClass('video-fullscreen').addClass('video-small');
     fullscreen = false;
+    $('#ul-videos').selectonic("enable");
 }
 
 function stopBroadcast() {
@@ -61,6 +63,8 @@ function broadcastFullScreen() {
     fullscreen = true;
 
     $('#app').hide();
+
+    $('#ul-videos').selectonic("disable");
 }
 
 function broadcastOutFullScreen() {
@@ -79,4 +83,5 @@ function broadcastOutFullScreen() {
 
     $('#app').show();
 
+    $('#ul-videos').selectonic("enable");
 }

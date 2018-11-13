@@ -45,16 +45,14 @@ function registerKeyEventListener() {
     document.addEventListener("keydown", function(e) {
         var kc = e.keyCode;
         if(kc == VK_RED) {
-            if(appRunning){
-                //play video
-            }else{
+            if(!appRunning){
                 $('#redbuttonMsg').hide();
                 redButtonPressed = true;
                 $('#automatepin').show();
             }
         }
         if(appRunning){
-            if(kc == VK_YELLOW){
+            if(kc == VK_YELLOW && !fullscreen){
                 pauseVideo();
             }
             if(kc == VK_BLUE){
@@ -81,7 +79,7 @@ function registerKeyEventListener() {
                     }
                 }
             }
-            if(kc == VK_GREEN){
+            if(kc == VK_GREEN && !fullscreen){
                 if(broadbandPlaying){
                     stopVideo();
                     resumeBroadcast();
@@ -106,12 +104,13 @@ function registerKeyEventListener() {
             });
             initApp();
             resumeBroadcast();
+            outFullScreen();
             broadcastFullScreen();
 
             $('#app').hide();
             $('#bluebuttonMsg').hide();
         }
-        if(kc == VK_ENTER && redButtonPressed){
+        if(kc == VK_ENTER && redButtonPressed && !appRunning && blueButtonPressed) {
             $('#automatepin').hide();
             $('#app').show();
             broadcastOutFullScreen();

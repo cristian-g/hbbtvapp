@@ -104,7 +104,7 @@ $(document).ready(function () {
     $('html').keydown(function (e) {
         if (!appRunning) return;
 
-        if (e.keyCode == VK_UP || e.keyCode == VK_DOWN) {
+        if ((e.keyCode == VK_UP || e.keyCode == VK_DOWN) && !fullscreen) {
             videoSelected = false;
             var videoId = parseInt($($('#ul-videos').selectonic("focus")).data('video-id'));
             if (e.keyCode == VK_UP) {
@@ -125,22 +125,24 @@ $(document).ready(function () {
             }
             selectVideo(videoId);
         }
-        else if (e.keyCode == VK_RED || e.keyCode == 13) {
+        else if ((e.keyCode == VK_RED || e.keyCode == 13) && !fullscreen) {
+            $('#ul-videos').selectonic("enable");
+
             stopBroadcast();
 
             var videoId = $($('#ul-videos').selectonic("focus")).data('video-id');
 
-            if (videoSelected || videoId == broadbandPlayingId) {
+            if (videoSelected || videoId === broadbandPlayingId) {
                 playVideo();
             }
             else {
                 var video = mapVideos.get(videoId);
                 showVideo(video.source);
                 incrementViews(video.id);
-                videoSelected = true;
-                broadbandPlaying = true;
             }
 
+            videoSelected = true;
+            broadbandPlaying = true;
             broadbandPlayingId = videoId;
         }
     })
