@@ -53,68 +53,71 @@ function registerKeyEventListener() {
                 $('#automatepin').show();
             }
         }
-        if(kc == VK_YELLOW){
-            pauseVideo();
-        }
-        if(kc == VK_BLUE){
-            if(!fullscreen){
+        if(appRunning){
+            if(kc == VK_YELLOW){
+                pauseVideo();
+            }
+            if(kc == VK_BLUE){
+                if(!fullscreen){
+                    if(broadbandPlaying){
+                        goFullScreen();
+                    }else{
+                        broadcastFullScreen();
+                        resumeBroadcast();
+                    }
+                    blueButtonPressed = false;
+                    showBlueButton();
+                    timeouts.push(setTimeout(hideBlueButton, 5000));
+                }else {
+                    hideBlueButton();
+                    timeouts.forEach(function(element) {
+                        clearTimeout(element);
+                    });
+                    blueButtonPressed = true;
+                    if(broadbandPlaying){
+                        outFullScreen();
+                    }else{
+                        broadcastOutFullScreen();
+                    }
+                }
+            }
+            if(kc == VK_GREEN){
                 if(broadbandPlaying){
-                    goFullScreen();
-                }else{
-                    broadcastFullScreen();
+                    stopVideo();
                     resumeBroadcast();
                 }
-                blueButtonPressed = false;
-                showBlueButton();
-                timeouts.push(setTimeout(hideBlueButton, 5000));
-            }else {
-                hideBlueButton();
+            }
+            if(kc == VK_0){
+
+                // Destroy app
+                if (broadbandPlaying) {
+                    stopVideo();
+                }
+
+                $('#automatepin').hide();
+                initVars();
+
+                appRunning = false;
+                fullscreen = true;
+
                 timeouts.forEach(function(element) {
                     clearTimeout(element);
                 });
-                blueButtonPressed = true;
-                if(broadbandPlaying){
-                    outFullScreen();
-                }else{
-                    broadcastOutFullScreen();
-                }
-            }
-        }
-        if(kc == VK_GREEN){
-            if(broadbandPlaying){
-                stopVideo();
+                initApp();
                 resumeBroadcast();
+                broadcastFullScreen();
+
+                $('#app').hide();
+                hideBlueButton();
             }
         }
+
         if(kc == VK_ENTER && redButtonPressed){
             $('#automatepin').hide();
             $('#app').show();
             broadcastOutFullScreen();
             appRunning = true;
             fullscreen = false;
-        }
-        if(kc == VK_0){
-
-            // Destroy app
-            if (broadbandPlaying) {
-                stopVideo();
-            }
-
-            $('#automatepin').hide();
-            initVars();
-
-            appRunning = false;
-            fullscreen = true;
-
-            timeouts.forEach(function(element) {
-                clearTimeout(element);
-            });
-            initApp();
-            resumeBroadcast();
-            broadcastFullScreen();
-
-            $('#app').hide();
-            hideBlueButton();
         }
     }, false);
 }
