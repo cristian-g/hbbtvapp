@@ -73,7 +73,7 @@ $(document).ready(function () {
     toggleActions(true);
 
     $.ajax({
-        url: 'http://localhost/hbbtvapp/api/videos',
+        url: 'http://hbbtvapp2.test/api/videos',
         method: "GET",
         dataType: "json",
 
@@ -127,16 +127,21 @@ $(document).ready(function () {
         }
         else if (e.keyCode == VK_RED || e.keyCode == 13) {
             stopBroadcast();
-            if (videoSelected) {
+
+            var videoId = $($('#ul-videos').selectonic("focus")).data('video-id');
+
+            if (videoSelected || videoId == broadbandPlayingId) {
                 playVideo();
             }
             else {
-                var videoId = $($('#ul-videos').selectonic("focus")).data('video-id');
                 var video = mapVideos.get(videoId);
                 showVideo(video.source);
                 incrementViews(video.id);
-                videoSelected = true; broadbandPlaying = true;
+                videoSelected = true;
+                broadbandPlaying = true;
             }
+
+            broadbandPlayingId = videoId;
         }
     })
 });

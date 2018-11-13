@@ -1,14 +1,16 @@
 redButtonPressed = false;
 appRunning = false;
-videoSelected = false; broadbandPlaying = false;
+videoSelected = false;
 broadbandPlaying = false;
+broadbandPlayingId = -1;
 fullscreen = true;
 
 function initVars() {
     redButtonPressed = false;
     appRunning = false;
-    videoSelected = false; broadbandPlaying = false;
+    videoSelected = false;
     broadbandPlaying = false;
+    broadbandPlayingId = -1;
     fullscreen = true;
 }
 
